@@ -1,0 +1,14 @@
+﻿生成启动时间为 2019/8/3 19:42:41。
+     1>项目“C:\Users\13923\Desktop\Git\CloudBackup\CloudBackup\CloudBackup.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\Lang\lib\boost_1_70_0 /Zi /nologo /W1 /WX- /O2 /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt CloudBackup.cpp
+         CloudBackup.cpp
+     1>c:\users\13923\desktop\git\cloudbackup\cloudbackup\httplib.h(1706): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\13923\Desktop\Git\CloudBackup\x64\Debug\CloudBackup.exe" /NOLOGO /LIBPATH:C:\Lang\lib\boost_1_70_0\stage\lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"C:\Users\13923\Desktop\Git\CloudBackup\x64\Debug\CloudBackup.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\13923\Desktop\Git\CloudBackup\x64\Debug\CloudBackup.lib" /MACHINE:X64 x64\Debug\CloudBackup.obj
+         CloudBackup.vcxproj -> C:\Users\13923\Desktop\Git\CloudBackup\x64\Debug\CloudBackup.exe
+     1>已完成生成项目“C:\Users\13923\Desktop\Git\CloudBackup\CloudBackup\CloudBackup.vcxproj”(Rebuild 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:04.26
