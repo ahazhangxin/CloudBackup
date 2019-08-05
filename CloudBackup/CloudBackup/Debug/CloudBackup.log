@@ -1,13 +1,27 @@
-﻿生成启动时间为 2019/8/1 10:43:14。
-     1>项目“C:\Users\13923\Desktop\Git\CloudBackup\CloudBackup\CloudBackup.vcxproj”在节点 2 上(Rebuild 个目标)。
+﻿生成启动时间为 2019/8/8 13:30:59。
+     1>项目“C:\Users\13923\Desktop\IN\CloudBackup\CloudBackup\CloudBackup.vcxproj”在节点 2 上(Rebuild 个目标)。
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Lang\lib\boost_1_70_0 /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CloudBackup.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Lang\lib\boost_1_70_0 /I"C:\Lang\lib\OpenSSL-Win64\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _SCL_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CloudBackup.cpp
          CloudBackup.cpp
+     1>c:\users\13923\desktop\in\cloudbackup\cloudbackup\httplib.h(1535): warning C4244: “=”: 从“uint64_t”转换到“size_t”，可能丢失数据
+     1>c:\users\13923\desktop\in\cloudbackup\cloudbackup\httplib.h(1706): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\users\13923\desktop\in\cloudbackup\cloudbackup\httplib.h(2351): warning C4800: “SSL_CTX *const ”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>c:\users\13923\desktop\in\cloudbackup\cloudbackup\httplib.h(2377): warning C4800: “SSL_CTX *const ”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>c:\users\13923\desktop\in\cloudbackup\cloudbackup\cloudclient.hpp(52): warning C4244: “参数”: 从“int64_t”转换到“unsigned int”，可能丢失数据
+     1>c:\users\13923\desktop\in\cloudbackup\cloudbackup\cloudclient.hpp(74): warning C4244: “参数”: 从“uintmax_t”转换到“unsigned int”，可能丢失数据
+     1>c:\users\13923\desktop\in\cloudbackup\cloudbackup\cloudclient.hpp(127): warning C4244: “参数”: 从“int64_t”转换到“unsigned int”，可能丢失数据
+     1>c:\users\13923\desktop\in\cloudbackup\cloudbackup\httplib.h(936): warning C4244: “参数”: 从“uint64_t”转换到“size_t”，可能丢失数据
+                 c:\users\13923\desktop\in\cloudbackup\cloudbackup\httplib.h(1843): 参见对正在编译的函数 模板 实例化“bool httplib::detail::read_content<httplib::Request>(httplib::Stream &,T &,uint64_t,bool &,httplib::Progress)”的引用
+                 with
+                 [
+                     T=httplib::Request
+                 ]
+     1>c:\users\13923\desktop\in\cloudbackup\cloudbackup\httplib.h(940): warning C4244: “参数”: 从“uint64_t”转换到“size_t”，可能丢失数据
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\13923\Desktop\Git\CloudBackup\Debug\CloudBackup.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Lang\lib\boost_1_70_0\libs kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\13923\Desktop\Git\CloudBackup\Debug\CloudBackup.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\13923\Desktop\Git\CloudBackup\Debug\CloudBackup.lib" /MACHINE:X86 Debug\CloudBackup.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\13923\Desktop\IN\CloudBackup\Debug\CloudBackup.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Lang\lib\boost_1_70_0\lib64-msvc-12.0" /LIBPATH:"C:\Lang\lib\OpenSSL-Win64\lib" libssl.lib libcrypto.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\13923\Desktop\IN\CloudBackup\Debug\CloudBackup.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\13923\Desktop\IN\CloudBackup\Debug\CloudBackup.lib" /MACHINE:X86 Debug\CloudBackup.obj
      1>LINK : fatal error LNK1104: 无法打开文件“libboost_filesystem-vc120-mt-gd-x32-1_70.lib”
-     1>已完成生成项目“C:\Users\13923\Desktop\Git\CloudBackup\CloudBackup\CloudBackup.vcxproj”(Rebuild 个目标)的操作 - 失败。
+     1>已完成生成项目“C:\Users\13923\Desktop\IN\CloudBackup\CloudBackup\CloudBackup.vcxproj”(Rebuild 个目标)的操作 - 失败。
 
 生成失败。
 
-已用时间 00:00:01.61
+已用时间 00:00:03.60

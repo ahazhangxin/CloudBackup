@@ -46,12 +46,16 @@ class CloudServer
     }
   private:
 
+    //接受上传并拆分其中的http头信息
     static void PutFileData(const Request &req,Response &rsp){
+      //使用的是http1.1,支持Range，防止因传输问题而存储了错误的文件
+      //如果没有Range则返回400
       if(!req.has_header("Range")){
         rsp.status = 400;
         return;
       }
       std::string range = req.get_header_value("Range");
+      //获取文件的范围，用RangeParse读取,并将字符串转化为整形
       int64_t range_start;
       if(RangeParse(range , range_start) == false){
         rsp.status = 400;
@@ -80,7 +84,9 @@ class CloudServer
     
 
     //迭代文件目录
-    static void GetFileList(const Request &req,Response &rsp){
+    //文件列表请求功能A调用在compress.hpp中Getfilelist实现对
+  static void GetFileList(const Request &req,Response &rsp)
+  {
       (void)req;
       std::vector<std::string> list;
 
@@ -104,7 +110,10 @@ class CloudServer
         //<html><body><ol><hr /><h4><li><a href=' uri '></a><hr /></ol></body></html>
       }
       body += "<hr /></ol></body></html>";
+
       rsp.set_content(&body[0],"text/html");
+      //content-type
+      //因为是要显示出来的页面，所以，
       return;
     }
 
@@ -115,7 +124,6 @@ class CloudServer
       std::string body;
 
       cstor.GetFileData(realpath, body);
-
       rsp.set_content(body, "text/plain");
     }
 
@@ -127,10 +135,10 @@ void thr_start()
 
 int main()
 {
-  daemon(1,1);
+  //daemon(1,1);
   std::thread thr(thr_start);
   thr.detach();
-  CloudServer srv("./cacert.pem", "./privkey.pem"); 
+  CloudServer srv("./cacert.pem", "./privkey.pem");
   srv.Start();
   return 0;
 }

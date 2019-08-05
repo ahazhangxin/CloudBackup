@@ -13,6 +13,7 @@
 #include<pthread.h>
 #include<sys/file.h>
 #include<sstream>
+//#include"FileCompressHuffM.hpp"
 
 #define UNGZIPFILE_PATH "www/list/"
 #define GZIPFILE_PATH "www/zip/"
@@ -20,6 +21,8 @@
 #define HEAT_TIME 10
 
 namespace bf = boost::filesystem;
+
+//FileCompressHuffM fc;
 
 class CompressStore {
   private:
@@ -107,6 +110,7 @@ class CompressStore {
     //2.3对文件进行压缩存储
     bool CompressFile(std::string &file, std::string &gzip)
     {
+      //fc.MyCompressFile(file, gzip);
       int fd = open(file.c_str(), O_RDONLY);
       if(fd < 0)
       {
@@ -128,12 +132,12 @@ class CompressStore {
       close(fd);
       gzclose(gf);
       unlink(file.c_str());
-
       return true;
     }
     //3.对文件进行解压缩
     bool UnCompressFile(std::string &gzip, std::string &file)
     {
+      //fc.MyUNCompressFile(gzip,file);
       int fd = open(file.c_str(), O_CREAT|O_WRONLY, 0664);
       if(fd < 0)
       {
@@ -165,7 +169,6 @@ class CompressStore {
       flock(fd, LOCK_UN);
       gzclose(gf);
       close(fd);
-      unlink(gzip.c_str());
       return true;
     }
 

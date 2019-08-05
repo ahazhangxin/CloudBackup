@@ -2476,10 +2476,10 @@ namespace httplib {
                 auto dsn_matched = false;
                 auto ip_mached = false;
 
-                auto count = sk_GENERAL_NAME_num(alt_names);
+                auto count = sk_GENERAL_NAME_num((stack_st_GENERAL_NAME*)alt_names);
 
                 for (auto i = 0; i < count && !dsn_matched; i++) {
-                    auto val = sk_GENERAL_NAME_value(alt_names, i);
+					auto val = sk_GENERAL_NAME_value((stack_st_GENERAL_NAME*)alt_names, i);
                     if (val->type == type) {
                         auto name = (const char *)ASN1_STRING_data(val->d.ia5);
                         auto name_len = (size_t)ASN1_STRING_length(val->d.ia5);

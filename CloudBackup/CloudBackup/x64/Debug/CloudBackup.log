@@ -1,14 +1,15 @@
-﻿生成启动时间为 2019/8/3 19:42:41。
-     1>项目“C:\Users\13923\Desktop\Git\CloudBackup\CloudBackup\CloudBackup.vcxproj”在节点 2 上(Rebuild 个目标)。
+﻿生成启动时间为 2019/8/8 15:24:18。
+     1>项目“C:\Users\13923\Desktop\IN\CloudBackup\CloudBackup\CloudBackup.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(357,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\Lang\lib\boost_1_70_0 /Zi /nologo /W1 /WX- /O2 /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt CloudBackup.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Lang\lib\OpenSSL-Win64\include" /IC:\Lang\lib\boost_1_70_0 /Zi /nologo /W1 /WX- /O2 /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt CloudBackup.cpp
          CloudBackup.cpp
-     1>c:\users\13923\desktop\git\cloudbackup\cloudbackup\httplib.h(1706): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>c:\users\13923\desktop\in\cloudbackup\cloudbackup\httplib.h(1706): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\13923\Desktop\Git\CloudBackup\x64\Debug\CloudBackup.exe" /NOLOGO /LIBPATH:C:\Lang\lib\boost_1_70_0\stage\lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"C:\Users\13923\Desktop\Git\CloudBackup\x64\Debug\CloudBackup.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\13923\Desktop\Git\CloudBackup\x64\Debug\CloudBackup.lib" /MACHINE:X64 x64\Debug\CloudBackup.obj
-         CloudBackup.vcxproj -> C:\Users\13923\Desktop\Git\CloudBackup\x64\Debug\CloudBackup.exe
-     1>已完成生成项目“C:\Users\13923\Desktop\Git\CloudBackup\CloudBackup\CloudBackup.vcxproj”(Rebuild 个目标)的操作。
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\13923\Desktop\testwudu\CloudBackup.exe" /NOLOGO /LIBPATH:"C:\Lang\lib\OpenSSL-Win64\lib" /LIBPATH:"C:\Lang\lib\boost_1_70_0\lib64-msvc-12.0" libssl.lib libcrypto.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\13923\Desktop\testwudu\CloudBackup.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\13923\Desktop\testwudu\CloudBackup.lib" /MACHINE:X64 x64\Debug\CloudBackup.obj
+         CloudBackup.vcxproj -> C:\Users\13923\Desktop\testwudu\CloudBackup.exe
+     1>已完成生成项目“C:\Users\13923\Desktop\IN\CloudBackup\CloudBackup\CloudBackup.vcxproj”(Rebuild 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:04.26
+已用时间 00:00:05.08

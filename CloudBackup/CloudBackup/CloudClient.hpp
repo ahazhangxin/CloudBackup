@@ -6,13 +6,13 @@
 #include<sstream>
 #include<vector>
 #include<string>
-#include"httplib.h"
 #include<unordered_map>
 #include<boost/filesystem.hpp>
 #include<boost/algorithm/string.hpp>
 #include<thread>
+#define CPPHTTPLIB_OPENSSL_SUPPORT
+#include"httplib.h"
 
-int count = 0;
 
 #define CLIENT_BACKUP_DIR "backup"
 #define CLIENT_BACKUP_INFO_FILE "back.list"
@@ -40,9 +40,6 @@ public:
 	{}
 
 	void Start(){
-		//获取文件的range分块数据		
-		std::cout << count << std::endl;
-		count++;
 		std::ifstream path(_file, std::ios::binary);
 		if (!path.is_open()){
 			std::cerr << "range backup file" << _file << " failed\n";
@@ -67,7 +64,17 @@ public:
 		//PUT /list/filename HTTP/1.1
 		std::string url = BACKUP_URI + name.filename().string();
 		//实例化一个 httplib 的客户端对象
-		httplib::Client cil(SERVER_IP, SERVER_PORT);
+		httplib::SSLClient cil(SERVER_IP, SERVER_PORT);
+
+		cil.set_ca_cert_path("./cert.pem");
+		cil.enable_server_certificate_verification(false);
+
+		/*std::ifstream cert("cert.pem", std::ios::binary);
+		std::string cert_body;
+		cert_body.resize(bf::file_size("cert.pem"));
+		cert.read(&cert_body[0], cert_body.size());
+		std::cout << "[" << cert_body << "]\n";*/
+
 		//定义http请求头信息
 		httplib::Headers hdr;
 		hdr.insert(std::make_pair("Content-Length", std::to_string(_range_len)));
@@ -75,12 +82,15 @@ public:
 		tmp << "bytes=" << _range_start << "-" << (_range_start + _range_len - 1);
 		hdr.insert(std::make_pair("Range: ", tmp.str().c_str()));
 		//通过实例化的Client向服务端发送 PUT 请求
+		std::stringstream ss;
 		auto rsp = cil.Put(url.c_str(), hdr, body, "text/plain");
 		if (rsp && rsp->status == 200){
+			ss << "backup file" << _file << "] range:[" << _range_start << " - " << _range_len << "] backup success\n";
+		}
+		else {
+			ss << "backup file" << _file << "] range:[" << _range_start << " - " << _range_len << "] backup failed\n";
 			_res = false;
 		}
-		std::stringstream ss;
-		ss << "backup file" << _file << "] range:[" << _range_start << " - " << _range_len << "] backup success\n";
 		std::cout << ss.str();
 		return;
 	}
@@ -186,11 +196,9 @@ private:
 			std::cerr << "file:[" << item_begin->path().string() << "] need backup\n";
 
 			//需要备份的普通文件
-			if (PutFileData(item_begin->path().string()) == false){
+			if (PutFileData(item_begin->path().string())){
 				AddBackInfo(item_begin->path().string());
-				continue;
 			}
-			
 		}
 		return true;
 	}
@@ -289,7 +297,7 @@ private:
 		//线程创建
 		for (int i = 0; i <= count; i++)
 		{
-			thr_list.push_back(std::thread(thr_start, &thr_res[i]));
+			thr_list.push_back(std::thread(thr_start, &thr_res[0]));
 		}
 
 		//4.等待所有线程退出，判断文件上传结果
